@@ -5,17 +5,19 @@ import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react'
 
 import Routes from './src/routes';
+import LoadingScreen from './src/screens/Loading';
 import { store, persistor } from './src/reducers';
 import { Platform } from 'react-native';
 
 const App: () => React$Node = () => {
   if(Platform.OS === 'ios') {
     KeyboardManager.setEnable(true);
+    KeyboardManager.setToolbarDoneBarButtonItemText("Pronto");
+    KeyboardManager.setToolbarPreviousNextButtonEnable(true);
   }
-  // Add loading PersistGate
   return (
     <Provider store={store}>
-      <PersistGate persistor={persistor}>
+      <PersistGate loading={<LoadingScreen />} persistor={persistor}>
         <Routes />
       </PersistGate>
     </Provider>

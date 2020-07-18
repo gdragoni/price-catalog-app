@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux'
-import { StyleSheet, SafeAreaView, View, Text, ImageBackground, Image, Dimensions, TextInput, Alert } from 'react-native';
+import styles from './styles';
+import { SafeAreaView, View, Text, ImageBackground, Image, TextInput, Alert } from 'react-native';
 import Button from '../../components/button.component';
 import api from '../../network/api';
 
-export default function LoginScreen() {
+export default function LoginScreen({ navigation }) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [isLoading, setIsLoading] = useState(false);
@@ -71,61 +72,3 @@ export default function LoginScreen() {
         </ImageBackground>
     );
 }
-
-const halfWidthScreen = Dimensions.get('window').width/2
-const logoProportion = 616/792 
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1, 
-        width: '100%',
-        height: '100%',
-    },
-    imageBackground: {
-      flex: 1,
-      resizeMode: 'cover',
-    },
-    topSpaceView: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    logo: {
-        width: halfWidthScreen,
-        height: halfWidthScreen*logoProportion,
-        resizeMode: 'cover',
-        borderRadius: 12,
-        overflow: 'hidden',
-    },
-    bottomSpaceView: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        paddingHorizontal: 40,
-    },
-    textInput: {
-        height: 60,
-        backgroundColor: '#2F0781',
-        width: '100%',
-        paddingHorizontal: 24,
-        marginVertical: 8,
-        borderRadius: 12,
-        color: 'white',
-        fontFamily: 'OpenSans-SemiBold',
-        fontSize: 15,
-    },
-    button: {
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: '#2F0781',
-        marginVertical: 8,
-        borderRadius: 12,
-        height: 60,
-        width: '100%',
-    },
-    textButton: {
-        color: "white",
-        fontFamily: 'OpenSans-Bold',
-        fontSize: 15,
-    },
-});
