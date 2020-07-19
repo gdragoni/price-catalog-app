@@ -7,7 +7,7 @@ import { PersistGate } from 'redux-persist/integration/react'
 import Routes from './src/routes';
 import LoadingScreen from './src/screens/Loading';
 import { store, persistor } from './src/reducers';
-import { Platform } from 'react-native';
+import { Platform, StatusBar } from 'react-native';
 
 const App: () => React$Node = () => {
   if(Platform.OS === 'ios') {
@@ -18,6 +18,7 @@ const App: () => React$Node = () => {
   return (
     <Provider store={store}>
       <PersistGate loading={<LoadingScreen />} persistor={persistor}>
+        <StatusBar barStyle={"light-content"} />
         <Routes />
       </PersistGate>
     </Provider>

@@ -26,7 +26,7 @@ export default StyleSheet.create({
         overflow: 'hidden',
     },
     bottomSpaceView: {
-        flex: 1,
+        flex: 2,
         justifyContent: 'center',
         alignItems: 'center',
         paddingHorizontal: 40,

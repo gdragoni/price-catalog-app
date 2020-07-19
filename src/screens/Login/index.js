@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux'
 import styles from './styles';
-import { SafeAreaView, View, Text, ImageBackground, Image, TextInput, Alert } from 'react-native';
+import { SafeAreaView, View, Text, ImageBackground, Image, TextInput, Alert, TouchableHighlight } from 'react-native';
 import Button from '../../components/button.component';
 import api from '../../network/api';
 
@@ -27,7 +27,7 @@ export default function LoginScreen({ navigation }) {
                 });
             } catch(err) {
                 setIsLoading(false);
-                Alert.alert("Atenção", 
+                Alert.alert("Erro", 
                 err.response.data.message || "Houve um problema com o login, verifique suas credenciais e sua conexão!")
             }
         }
@@ -67,6 +67,12 @@ export default function LoginScreen({ navigation }) {
                         isLoading={isLoading}
                         onTap={handleSignInPress}
                     />
+                    <TouchableHighlight
+                        style={styles.regButton}
+                        onPress={() => navigation.push('Register')}
+                    >
+                        <Text style={styles.regButtonText}>Primeiro acesso?</Text>
+                    </TouchableHighlight>
                 </View>
             </SafeAreaView>
         </ImageBackground>
