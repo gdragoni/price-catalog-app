@@ -51,7 +51,7 @@
 		00E356F21AD99517003FC87E /* pricecatalogappTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = pricecatalogappTests.m; sourceTree = "<group>"; };
 		0953E35840143DC6A390F708 /* Pods-pricecatalogapp-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pricecatalogapp-tvOS.release.xcconfig"; path = "Target Support Files/Pods-pricecatalogapp-tvOS/Pods-pricecatalogapp-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		0A7CD854055676758FF5748F /* Pods-pricecatalogapp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pricecatalogapp.release.xcconfig"; path = "Target Support Files/Pods-pricecatalogapp/Pods-pricecatalogapp.release.xcconfig"; sourceTree = "<group>"; };
-		13B07F961A680F5B00A75B9A /* pricecatalogapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pricecatalogapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07F961A680F5B00A75B9A /* Offer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Offer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = pricecatalogapp/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = pricecatalogapp/AppDelegate.m; sourceTree = "<group>"; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = pricecatalogapp/Images.xcassets; sourceTree = "<group>"; };
@@ -63,15 +63,15 @@
 		2D02E4901E0B4A5D006451C7 /* pricecatalogapp-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "pricecatalogapp-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3131C64DB9E3A2766AD87870 /* libPods-pricecatalogapp-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-pricecatalogapp-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		65E5498D75A30E364064AB7F /* Pods-pricecatalogapp-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pricecatalogapp-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-pricecatalogapp-tvOS/Pods-pricecatalogapp-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
-		70416830D78F48E29E452718 /* OpenSans-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-Light.ttf"; path = "../assets/fonts/OpenSans-Light.ttf"; sourceTree = "<group>"; };
-		804105E9D9A045DBA4B6781C /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-Bold.ttf"; path = "../assets/fonts/OpenSans-Bold.ttf"; sourceTree = "<group>"; };
+		70416830D78F48E29E452718 /* OpenSans-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-Light.ttf"; path = "../assets/fonts/OpenSans-Light.ttf"; sourceTree = "<group>"; };
+		804105E9D9A045DBA4B6781C /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-Bold.ttf"; path = "../assets/fonts/OpenSans-Bold.ttf"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = pricecatalogapp/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		86CF6C08AA8C46DC9C515B84 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-Regular.ttf"; path = "../assets/fonts/OpenSans-Regular.ttf"; sourceTree = "<group>"; };
+		86CF6C08AA8C46DC9C515B84 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-Regular.ttf"; path = "../assets/fonts/OpenSans-Regular.ttf"; sourceTree = "<group>"; };
 		9392804ECDB5B415963283B4 /* libPods-pricecatalogapp-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-pricecatalogapp-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		A60D3A1599D84AA2A2D2FCFA /* OpenSans-ExtraBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-ExtraBold.ttf"; path = "../assets/fonts/OpenSans-ExtraBold.ttf"; sourceTree = "<group>"; };
+		A60D3A1599D84AA2A2D2FCFA /* OpenSans-ExtraBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-ExtraBold.ttf"; path = "../assets/fonts/OpenSans-ExtraBold.ttf"; sourceTree = "<group>"; };
 		C13960C919E2D0D3F8F7BD0D /* libPods-pricecatalogapp-pricecatalogappTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-pricecatalogapp-pricecatalogappTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCF46A6039F2AADE2A7B8E14 /* libPods-pricecatalogapp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-pricecatalogapp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		CE7DE83B40874F2AAA117098 /* OpenSans-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-SemiBold.ttf"; path = "../assets/fonts/OpenSans-SemiBold.ttf"; sourceTree = "<group>"; };
+		CE7DE83B40874F2AAA117098 /* OpenSans-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-SemiBold.ttf"; path = "../assets/fonts/OpenSans-SemiBold.ttf"; sourceTree = "<group>"; };
 		E117F738E78F8010047E9165 /* Pods-pricecatalogapp-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pricecatalogapp-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-pricecatalogapp-tvOSTests/Pods-pricecatalogapp-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		E759AF6484CD01BC8CB4C450 /* Pods-pricecatalogapp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pricecatalogapp.debug.xcconfig"; path = "Target Support Files/Pods-pricecatalogapp/Pods-pricecatalogapp.debug.xcconfig"; sourceTree = "<group>"; };
 		EC19B43A9BAFF2FD044E28BA /* Pods-pricecatalogapp-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pricecatalogapp-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-pricecatalogapp-tvOSTests/Pods-pricecatalogapp-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -169,7 +169,6 @@
 				CE7DE83B40874F2AAA117098 /* OpenSans-SemiBold.ttf */,
 			);
 			name = Resources;
-			path = "";
 			sourceTree = "<group>";
 		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
@@ -198,7 +197,7 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* pricecatalogapp.app */,
+				13B07F961A680F5B00A75B9A /* Offer.app */,
 				00E356EE1AD99517003FC87E /* pricecatalogappTests.xctest */,
 				2D02E47B1E0B4A5D006451C7 /* pricecatalogapp-tvOS.app */,
 				2D02E4901E0B4A5D006451C7 /* pricecatalogapp-tvOSTests.xctest */,
@@ -218,7 +217,6 @@
 				EC19B43A9BAFF2FD044E28BA /* Pods-pricecatalogapp-tvOSTests.debug.xcconfig */,
 				E117F738E78F8010047E9165 /* Pods-pricecatalogapp-tvOSTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -263,7 +261,7 @@
 			);
 			name = pricecatalogapp;
 			productName = pricecatalogapp;
-			productReference = 13B07F961A680F5B00A75B9A /* pricecatalogapp.app */;
+			productReference = 13B07F961A680F5B00A75B9A /* Offer.app */;
 			productType = "com.apple.product-type.application";
 		};
 		2D02E47A1E0B4A5D006451C7 /* pricecatalogapp-tvOS */ = {
@@ -698,7 +696,7 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = pricecatalogapp;
+				PRODUCT_NAME = Offer;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -720,7 +718,7 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = pricecatalogapp;
+				PRODUCT_NAME = Offer;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
