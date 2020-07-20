@@ -1,11 +1,8 @@
 import React from 'react';
-import { createStackNavigator } from '@react-navigation/stack';
-const Stack = createStackNavigator();
-
 import LoginScreen from "../screens/Login";
 import RegisterScreen from '../screens/Register';
 
-export default function AuthRoute() {
+export default function AuthRoute({ Stack }) {
     return (
         <Stack.Navigator
             screenOptions={{

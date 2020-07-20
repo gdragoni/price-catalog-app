@@ -28,7 +28,9 @@ export default function LoginScreen({ navigation }) {
             } catch(err) {
                 setIsLoading(false);
                 Alert.alert("Erro", 
-                err.response.data.message || "Houve um problema com o login, verifique suas credenciais e sua conexão!")
+                err && err.response ?
+                err.response.data.message
+                : err)
             }
         }
     }
