@@ -5,7 +5,7 @@ import { SafeAreaView, Text, TouchableHighlight, Alert, View, Image } from 'reac
 import styles from './styles';
 import LoadingView from '../Loading';
 import MapMarker from '../../components/mapMarker.component';
-import MapView from 'react-native-maps';
+import MapView from "react-native-map-clustering";
 import Geolocation from '@react-native-community/geolocation';
 import api from '../../network/api';
 
@@ -58,15 +58,24 @@ export default function MapScreen({ navigation }) {
         <SafeAreaView style={styles.container}>
             <MapView
             showsCompass={false}
+            clusterColor={"#2F0781"}
             style={styles.mapView}
-            region={{
+            initialRegion={{
                 ...userLocation,
                 latitudeDelta: 0.03,
                 longitudeDelta: 0.03,
             }}
             >
             { mapMarkets.map(mapMarket => (
-                <MapMarker market={mapMarket} onSelect={() => console.log(mapMarket)} key={mapMarket._id} />
+                <MapMarker 
+                market={mapMarket} 
+                coordinate={{
+                    latitude: mapMarket.latitude,
+                    longitude: mapMarket.longitude,
+                }}
+                onSelect={() => console.log(mapMarket)} 
+                key={mapMarket._id} 
+                />
             )) }
             </MapView>
         </SafeAreaView>

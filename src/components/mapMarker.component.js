@@ -42,8 +42,10 @@ function ImagePin(type) {
 export default function MapMarker({ market, onSelect }) {
 
     return (
-        <Marker 
+        <Marker
+            id={market._id}
             title={market.name}
+            tracksViewChanges={false}
             coordinate={{
                 latitude: market.latitude,
                 longitude: market.longitude,
