@@ -1,7 +1,7 @@
 import React from 'react';
-import { StyleSheet, View, Text, TouchableHighlight, ActivityIndicator } from 'react-native';
+import { StyleSheet, View, Text, TouchableHighlight, ActivityIndicator, Image } from 'react-native';
 
-function ButtonContent({isLoading, text}) {
+function ButtonContent({isLoading, text, icon}) {
     if(isLoading) {
         return (
             <View>
@@ -10,13 +10,14 @@ function ButtonContent({isLoading, text}) {
         )
     }
     return (
-        <View>
+        <View style={styles.buttonView}>
             <Text style={styles.textButton}>{text}</Text>
+            { icon ? <Image source={icon} style={styles.image} /> : null }
         </View>
     )
 }
 
-export default function Button({text, onTap, isLoading}) {
+export default function Button({text, onTap, isLoading, icon}) {
     return (
         <TouchableHighlight
             style={styles.button}
@@ -25,6 +26,7 @@ export default function Button({text, onTap, isLoading}) {
              <ButtonContent 
                 isLoading={isLoading} 
                 text={text}
+                icon={icon}
              />
         </TouchableHighlight>
     )
@@ -40,9 +42,23 @@ const styles = StyleSheet.create({
         height: 60,
         width: '100%',
     },
+    buttonView: {
+        flexDirection: 'row',
+        width: '100%',
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
     textButton: {
         color: "white",
         fontFamily: 'OpenSans-Bold',
         fontSize: 15,
+    },
+    image: {
+        height: 30,
+        width: 30,
+        position: 'absolute',
+        right: 0,
+        marginRight: 18,
+        tintColor: 'white',
     },
 });
