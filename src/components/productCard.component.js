@@ -3,6 +3,8 @@ import { useSelector, useDispatch } from 'react-redux'
 import { StyleSheet, View, Text, TouchableHighlight, Image, Dimensions, ActivityIndicator, Alert } from 'react-native';
 import Share from "react-native-share";
 import api from '../network/api';
+import moment from 'moment';
+import 'moment/locale/pt-br';
 
 function LikeMessage(likes, userLiked) {
     if(userLiked && likes && likes.length > 2) {
@@ -59,6 +61,7 @@ export default function ProductCard({ product, market, navigation, onImageTapped
     return (
         <View style={styles.container}>
             <View style={styles.card}>
+                <Text style={styles.dateText}>{moment(product.date).locale('pt-br').fromNow()}</Text>
                 <TouchableHighlight style={{ width: '100%' }} onPress={onImageTapped}>
                     <Image
                     onLoadStart={() => setIsLoading(true)}
@@ -163,5 +166,13 @@ const styles = StyleSheet.create({
     likeText: {
         color: 'white',
         fontFamily: 'OpenSans-Regular',
+    },
+    dateText: {
+        width: '100%',
+        color: '#DFB233',
+        fontFamily: 'OpenSans-Regular',
+        fontSize: 15,
+        textAlign: 'left',
+        marginBottom: 9,
     },
 });

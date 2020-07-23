@@ -4,13 +4,17 @@ const halfWidthScreen = Dimensions.get('window').width/2
 const logoProportion = 616/792 
 
 export default StyleSheet.create({
+    backgroundView: {
+        flex: 1,
+        backgroundColor: '#2F0781',
+    },
     container: {
-        flex: 1, 
-        backgroundColor: "#eee",
+        flex: 1,
         alignItems: 'center',
     },
     flatList: { 
-        width: '100%' 
+        width: '100%',
+        backgroundColor: "#eee",
     },
     bottomContainer: {
         width: '100%',

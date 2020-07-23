@@ -48,6 +48,7 @@ export default function CommentScreen({ route }) {
     }, []);
 
     return (
+        <View style={styles.backgroundView}>
         <SafeAreaView style={styles.container}>
             <FlatList
                 style={styles.flatList}
@@ -73,5 +74,6 @@ export default function CommentScreen({ route }) {
                 </TouchableHighlight>
             </View>
         </SafeAreaView>
+        </View>
     );
 }
