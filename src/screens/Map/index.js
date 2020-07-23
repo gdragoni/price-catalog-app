@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-import { SafeAreaView, Alert, View, PermissionsAndroid, Platform, Image } from 'react-native';
+import { SafeAreaView, Alert, View, PermissionsAndroid, Platform, Image, TouchableHighlight } from 'react-native';
 import styles from './styles';
 import LoadingView from '../Loading';
 import MapMarker from '../../components/mapMarker.component';
 import MapView from "react-native-map-clustering";
 import Geolocation from '@react-native-community/geolocation';
+import MarketModal from '../../components/marketModal.component';
 import api from '../../network/api';
 
 export default function MapScreen({ navigation }) {
@@ -15,7 +16,7 @@ export default function MapScreen({ navigation }) {
     const range = useSelector(state => state.filter.range);
     const [isLoading, setIsLoading] = useState(false);
     const [grantedPermission, setGrantedPermission] = useState(false);
-    const [urlImageModal, setURLImageModal] = useState(null);
+    const [selectedMarket, setSelectedMarket] = useState(null);
 
     useEffect(() => {
         
@@ -91,10 +92,13 @@ export default function MapScreen({ navigation }) {
     return (
         <View style={styles.container}>
         <SafeAreaView style={styles.container}>
-            { urlImageModal == null || Platform.OS === 'ios' ? null : <View style={styles.modalView}><Image style={styles.modalImage} source={{ uri: urlImageModal }} /></View> }
+            <MarketModal  
+                market={selectedMarket}
+                onTap={() => navigation.push('ProductListScreen', { title: selectedMarket.name, market: selectedMarket })}
+            />
             <MapView
             showsCompass={false}
-            onPress={() => setURLImageModal(null)}
+            onPress={() => setSelectedMarket(null)}
             clusterColor={"#2F0781"}
             style={styles.mapView}
             initialRegion={{
@@ -107,7 +111,7 @@ export default function MapScreen({ navigation }) {
                 <MapMarker 
                 market={mapMarket}
                 tracksViewChanges={false}
-                setURLImageModal={setURLImageModal}
+                setSelectedMarket={setSelectedMarket}
                 coordinate={{
                     latitude: mapMarket.latitude,
                     longitude: mapMarket.longitude,

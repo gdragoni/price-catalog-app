@@ -3,7 +3,7 @@ import { StyleSheet, View, Text, TouchableHighlight, Image, Dimensions, Platform
 import { Marker, Callout } from 'react-native-maps';
 import ImagePin from '../utils/imagePin';
 
-function MapCallout({ market, onSelect, setImageLoaded, imageLoaded }) {
+function MapCallout({ market, onSelect }) {
 
     if(Platform.OS === 'ios') {
         return (
@@ -26,7 +26,7 @@ function MapCallout({ market, onSelect, setImageLoaded, imageLoaded }) {
     )
 }
 
-export default function MapMarker({ market, onSelect, setURLImageModal }) {
+export default function MapMarker({ market, onSelect, setSelectedMarket }) {
 
     const [imageLoaded, setImageLoaded] = useState(false);
 
@@ -35,13 +35,14 @@ export default function MapMarker({ market, onSelect, setURLImageModal }) {
             id={market._id}
             title={market.name}
             tracksViewChanges={!imageLoaded}
-            onPress={() => setURLImageModal(market.logo)}
+            onPress={() => setSelectedMarket(market)}
             coordinate={{
                 latitude: market.latitude,
                 longitude: market.longitude,
         }}>
         <View style={styles.markerView}>
             <Image 
+            onLoadStart={() => setImageLoaded(false)}
             onLoadEnd={() => setImageLoaded(true)}
             source={ImagePin(market.type)} 
             style={styles.markerImage} />
