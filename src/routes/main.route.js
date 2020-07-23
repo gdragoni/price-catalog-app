@@ -1,9 +1,14 @@
 import React from 'react';
-import { Image } from 'react-native';
+import { Image, TouchableHighlight } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import HeaderButton from '../components/headerButton.component';
 import MapScreen from "../screens/Map";
 import MarketListScreen from '../screens/MarketList';
 import UserScreen from '../screens/User';
+import MapFilterScreen from '../screens/MapFilter';
+import ProductListScreen from '../screens/ProductList';
+import CommentScreen from '../screens/Comment';
+
 const Tab = createBottomTabNavigator();
 
 function TabScreen() {
@@ -62,7 +67,40 @@ export default function MainRoute({ Stack }) {
                 headerTintColor: 'white',
                 headerBackTitle: " ",
             }}>
-            <Stack.Screen name="Home" options={{ headerTitle: "Offer" }} component={TabScreen} />
+            <Stack.Screen 
+            name="Home" 
+            options={({ navigation }) => ({ 
+                headerTitle: "Offer",
+                headerRight: () => ( <HeaderButton 
+                    icon={require('../../assets/images/location/map-radius.png')}
+                    onPress={() => navigation.push('MapFilterScreen')}
+                /> )
+            })} 
+            component={TabScreen} />
+            <Stack.Screen 
+            name="MapFilterScreen" 
+            options={({ navigation }) => ({ 
+                headerTitle: "Filtro",
+            })} 
+            component={MapFilterScreen} />
+            <Stack.Screen 
+            options={({ route }) => ({
+                headerTitle: route.params.title,
+                headerTitleStyle: {
+                    fontSize: 16,
+                },
+            })}
+            name="ProductListScreen" 
+            component={ProductListScreen} />
+            <Stack.Screen 
+            options={({ route }) => ({
+                headerTitle: route.params.title,
+                headerTitleStyle: {
+                    fontSize: 16,
+                },
+            })}
+            name="CommentScreen" 
+            component={CommentScreen} />
         </Stack.Navigator>
     )
 }

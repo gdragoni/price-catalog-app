@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-
-import { SafeAreaView, Text, View, Image } from 'react-native';
+import { SafeAreaView, Text, View, Image, TouchableHighlight } from 'react-native';
 import Button from '../../components/button.component';
+import ToninhoEasterEgg from '../../components/toninhoEasterEgg';
 import styles from './styles';
 
-export default function Usercreen() {
+export default function UserScreen() {
     const dispatch = useDispatch();
     const user = useSelector(state => state.user);
 
@@ -17,7 +17,7 @@ export default function Usercreen() {
         <SafeAreaView style={styles.container}>
             <View style={styles.topContainer}>
                 <View style={styles.topSpaceView}>
-                    <Image source={require('../../../assets/images/logo/offer-logo-purple.png')} style={styles.logo} />
+                    <ToninhoEasterEgg />
                 </View>
                 <View style={{ width: '100%' }}>
                 <View style={styles.userView}>

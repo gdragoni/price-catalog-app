@@ -20,7 +20,8 @@ export default StyleSheet.create({
         borderRadius: 12,
         backgroundColor: '#2F0781',
         width: '100%',
-        padding: 18,
+        paddingHorizontal: 18,
+        paddingVertical: 9,
         marginTop: 20,
     },
     userText: {

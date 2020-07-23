@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-
-import { SafeAreaView, Text, TouchableHighlight, Alert, View, Image } from 'react-native';
+import { SafeAreaView, Alert, View } from 'react-native';
 import styles from './styles';
 import LoadingView from '../Loading';
 import MapMarker from '../../components/mapMarker.component';
@@ -12,14 +11,16 @@ import api from '../../network/api';
 export default function MapScreen({ navigation }) {
     const dispatch = useDispatch();
     const mapMarkets = useSelector(state => state.market.mapMarkets);
-    const [userLocation, setUserLocation] = useState(null);
+    const userLocation = useSelector(state => state.location);
+    const range = useSelector(state => state.filter.range);
+    const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
         const watchID = Geolocation.watchPosition(info => {
                 const {
                     latitude, longitude,
                 } = info.coords;
-                setUserLocation({latitude, longitude});
+                dispatch({ type: 'SET_LOCATION', payload: {latitude, longitude} });
             },
             error => Alert.alert('Erro', JSON.stringify(error)),
         { 
@@ -36,10 +37,12 @@ export default function MapScreen({ navigation }) {
     useEffect(() => {
         const fetchMarkets = async (location) => {
             try {
-                const response = await api.get(`/loja?latitude=${location.latitude}&longitude=${location.longitude}&range=10`);
+                setIsLoading(true);
+                const response = await api.get(`/loja?latitude=${location.latitude}&longitude=${location.longitude}&range=${range}`);
                 dispatch({type: 'SET_MAP_MARKETS', payload: response.data});
+                setIsLoading(false);
             } catch(err) {
-                console.log("Erro fetchMarkets "+err);
+                setIsLoading(false);
                 Alert.alert("Erro", err.response ? err.response.data.message : err);
             }
         }
@@ -47,9 +50,9 @@ export default function MapScreen({ navigation }) {
         if(userLocation) {
             fetchMarkets(userLocation);
         }
-    }, [userLocation]);
+    }, [userLocation, range]);
 
-    if(!userLocation) {
+    if(!userLocation || isLoading) {
         return <LoadingView />
     }
     
@@ -73,7 +76,7 @@ export default function MapScreen({ navigation }) {
                     latitude: mapMarket.latitude,
                     longitude: mapMarket.longitude,
                 }}
-                onSelect={() => console.log(mapMarket)} 
+                onSelect={() => navigation.push('ProductListScreen', { title: mapMarket.name, market: mapMarket })} 
                 key={mapMarket._id} 
                 />
             )) }

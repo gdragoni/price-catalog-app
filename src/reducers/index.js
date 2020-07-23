@@ -11,10 +11,18 @@ const persistConfig = {
 
 import user from './User';
 import market from './Market';
+import location from './Location';
+import filter from './Filter';
+import products from './Product';
+import comments from './Comment';
 
 const persistedReducer = persistReducer(persistConfig, combineReducers({
     user,
     market,
+    location,
+    filter,
+    products,
+    comments,
 }));
 
 const store = createStore(persistedReducer, Reactotron.createEnhancer());
