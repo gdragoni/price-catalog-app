@@ -8,11 +8,9 @@ export default function CommentCard({ comment }) {
     return (
         <View style={styles.container}>
             <View style={styles.card}>
+                <Text style={styles.userNameText}>{comment.userName}</Text>
                 <Text style={styles.text}>{comment.comment}</Text>
-                <View style={styles.commentInfoView}>
-                    <Text style={styles.userNameText}>{comment.userName}</Text>
-                    <Text style={styles.dateText}>{moment(comment.date).locale('pt-br').fromNow()}</Text>
-                </View>
+                <Text style={styles.dateText}>{moment(comment.date).locale('pt-br').fromNow()}</Text>
             </View>
         </View>
     )
@@ -47,17 +45,19 @@ const styles = StyleSheet.create({
         fontSize: 15,
     },
     userNameText: {
+        width: '100%',
+        color: '#DFB233',
+        fontFamily: 'OpenSans-Regular',
+        fontSize: 15,
+        textAlign: 'left',
+        marginBottom: 9,
+    },
+    dateText: {
+        width: '100%',
         marginTop: 9,
         color: '#DFB233',
         fontFamily: 'OpenSans-Regular',
         fontSize: 15,
         textAlign: 'right',
-    },
-    dateText: {
-        marginTop: 9,
-        color: '#DFB233',
-        fontFamily: 'OpenSans-Regular',
-        fontSize: 15,
-        textAlign: 'left',
     }
 });

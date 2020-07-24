@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-import { SafeAreaView, Text, View, FlatList, TouchableHighlight, Image } from 'react-native';
+import { SafeAreaView, Text, View, FlatList, TouchableHighlight, Image, RefreshControl } from 'react-native';
 import ProductCard from '../../components/productCard.component';
 import ImageView from "react-native-image-viewing";
 import styles from './styles';
@@ -39,9 +39,16 @@ export default function ProductListScreen({ route, navigation }) {
                 <FlatList
                     style={styles.flatlist}
                     data={productList}
-                    refreshing={isLoading}
                     contentContainerStyle={{ paddingBottom: 70, }}
-                    onRefresh={async () => fetchProducts()}
+                    refreshControl={
+                      <RefreshControl
+                          refreshing={isLoading}
+                          onRefresh={fetchProducts}
+                          title="Arraste para atualizar"
+                          tintColor="#2F0781"
+                          titleColor="#2F0781"
+                       />
+                    }
                     keyExtractor={(item) => item._id}
                     renderItem={({item, index}) => <ProductCard 
                                                 product={item}
@@ -60,7 +67,12 @@ export default function ProductListScreen({ route, navigation }) {
                     onRequestClose={() => setImagesIsVisible(false)}
                 />
                 <View style={styles.addButtonContainer}>
-                    <TouchableHighlight onPress={() => navigation.push('PublishProductScreen', route.params)} style={styles.addButtonView}>
+                    <TouchableHighlight 
+                    onPress={() => navigation.push('PublishProductScreen', {
+                        ...route.params, 
+                        refreshProductList: fetchProducts
+                        })} 
+                    style={styles.addButtonView}>
                         <>
                             <Text style={styles.addButtonText}>Publicar</Text>
                             <Image style={styles.addButtonImage} source={require('../../../assets/images/product/add.png')} />

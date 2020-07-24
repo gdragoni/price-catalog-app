@@ -22,6 +22,15 @@ export default StyleSheet.create({
         width: '100%',
         height: screenWidth*2/3,
     },
+    imageView: {
+        width: '100%',
+        height: '100%',
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRadius: 12,
+        borderWidth: 10,
+        borderColor: "#2F0781",
+    },
     image: {
         width: '100%',
         height: '100%',
@@ -38,5 +47,17 @@ export default StyleSheet.create({
         color: 'white',
         fontFamily: 'OpenSans-SemiBold',
         fontSize: 15,
+    },
+    buttonView: {
+        position: 'absolute',
+        alignItems: 'center',
+    },
+    buttonText: {
+        fontFamily: 'OpenSans-Bold',
+        fontSize: 30,
+        color: '#2F0781',
+    },
+    buttonImage: {
+        tintColor: '#2F0781',
     },
 });

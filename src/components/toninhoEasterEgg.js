@@ -20,7 +20,8 @@ export default function ToninhoEasterEgg() {
 
     return (
         <TouchableHighlight
-        onPress={() => setTapCounter(tapCounter+1)}>
+            style={{ width: '100%', justifyContent: 'center', alignItems: 'center' }}
+            onPress={() => setTapCounter(tapCounter+1)}>
             <>
             <Image source={require('../../assets/images/logo/offer-logo-purple.png')} style={styles.logo} />
             <ImageView

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-import { SafeAreaView, Text, View, TextInput, Image, TouchableHighlight, FlatList, Alert } from 'react-native';
+import { SafeAreaView, Text, View, TextInput, Image, TouchableHighlight, FlatList, Alert, RefreshControl } from 'react-native';
 import CommentCard from '../../components/comment.component';
 import styles from './styles';
 import api from '../../network/api';
@@ -53,9 +53,15 @@ export default function CommentScreen({ route }) {
             <FlatList
                 style={styles.flatList}
                 data={comments}
-                refreshing={isLoading}
                 inverted={true}
-                onRefresh={async () => fetchComments()}
+                refreshControl={
+                  <RefreshControl
+                      refreshing={isLoading}
+                      onRefresh={fetchComments}
+                      tintColor="#2F0781"
+                      titleColor="#2F0781"
+                   />
+                }
                 keyExtractor={(item) => item._id}
                 renderItem={({item, index}) => <CommentCard 
                                                 product={product}

@@ -8,7 +8,7 @@ import api from '../../network/api';
 import ImagePicker from 'react-native-image-picker';
 
 export default function PublishProductScreen({ route, navigation }) {
-    const { market } = route.params;
+    const { market, refreshProductList } = route.params;
     const [isLoading, setIsLoading] = useState(false);
     const [description, setDescription] = useState("");
     const [image, setImage] = useState(null);
@@ -20,13 +20,16 @@ export default function PublishProductScreen({ route, navigation }) {
             const response = await api.post('/produto/add', {
                 marketID: market._id,
                 description,
-            });
-            const formData = new FormData();
-            formData.append("file", image);
-            const uploadResponse = axios.post(`/produto/upload?id=${response._id}`, formData, {
-                "Content-Type": `multipart/form-data; boundary=${formData._boundary}`,
+                image: image.uri,
             });
             setIsLoading(false);
+            refreshProductList();
+            Alert.alert("Sucesso!", response.data.message || "Produto cadastrado!", [
+                {
+                    text: "Ok",
+                    onPress: () => navigation.goBack(),
+                }
+            ], { cancelable: false });
         } catch(err) {
             setIsLoading(false);
             Alert.alert("Erro", err.response ? err.response.message : "Ocorreu um erro ao enviar a publicação");
@@ -45,8 +48,6 @@ export default function PublishProductScreen({ route, navigation }) {
         };
 
         ImagePicker.showImagePicker(options, (response) => {
-          console.log('Response = ', response);
-
           if (response.didCancel) {
             console.log('User cancelled image picker');
           } else if (response.error) {
@@ -54,33 +55,38 @@ export default function PublishProductScreen({ route, navigation }) {
           } else if (response.customButton) {
             console.log('User tapped custom button: ', response.customButton);
           } else {
-            const source = { uri: response.uri };
-
-            // You can also display the image using data:
-            // const source = { uri: 'data:image/jpeg;base64,' + response.data };
+            const source = { uri: 'data:image/jpeg;base64,' + response.data };
             setImage(source);
           }
         });
-        console.log(market);
     }
 
-    useEffect(() => {
-
-        
-    }, []);
+    const handlePublish = () => {
+        if(image == null) {
+            return Alert.alert('Atenção', "Adicione uma foto para continuar!")
+        } else {
+            sendProduct()
+        }
+    }
 
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.topContainer}>
                 <TouchableHighlight onPress={openImagePicker} style={styles.imageButton}>
-                    <View>
-                    <Image source={image || require('../../../assets/images/product/add-photo.png')} style={styles.image} />
+                    <View style={styles.imageView}>
+                        <View style={styles.buttonView}>
+                            <Image style={styles.buttonImage} source={require('../../../assets/images/product/add-photo.png')} />
+                            <Text style={styles.buttonText}>Adicionar foto</Text>
+                        </View>
+                        { image ? <Image source={image} style={styles.image} /> : null }
                     </View>
                 </TouchableHighlight>
                 <TextInput
                     style={styles.textInput} 
                     placeholderTextColor={'white'}
                     placeholder={"Descrição (opcional)"}
+                    value={description}
+                    onChangeText={setDescription}
                 />
             </View>
             <View style={styles.bottomContainer}>
@@ -88,6 +94,7 @@ export default function PublishProductScreen({ route, navigation }) {
                     text={"Enviar"}
                     icon={require('../../../assets/images/comment/send.png')}
                     isLoading={isLoading}
+                    onTap={handlePublish}
                 />
             </View>
         </SafeAreaView>

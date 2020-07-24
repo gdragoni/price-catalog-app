@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-import { SafeAreaView, Alert, FlatList } from 'react-native';
+import { SafeAreaView, Alert, FlatList, RefreshControl } from 'react-native';
 import styles from './styles';
 import LoadingView from '../Loading';
 import MarketCard from '../../components/marketCard.component';
@@ -13,10 +13,10 @@ export default function MarketListScreen({ navigation }) {
     const range = useSelector(state => state.filter.range);
     const [isLoading, setIsLoading] = useState(false);
 
-    const fetchMarkets = async (location) => {
+    const fetchMarkets = async () => {
         try {
             setIsLoading(true);
-            const response = await api.get(`/loja?latitude=${location.latitude}&longitude=${location.longitude}&range=${range}`);
+            const response = await api.get(`/loja?latitude=${userLocation.latitude}&longitude=${userLocation.longitude}&range=${range}`);
             dispatch({type: 'SET_LIST_MARKETS', payload: response.data});
             setIsLoading(false);
         } catch(err) {
@@ -27,7 +27,7 @@ export default function MarketListScreen({ navigation }) {
 
     useEffect(() => {
         if(userLocation) {
-            fetchMarkets(userLocation);
+            fetchMarkets();
         }
     }, [userLocation, range]);
 
@@ -39,8 +39,15 @@ export default function MarketListScreen({ navigation }) {
         <SafeAreaView style={styles.container}>
             <FlatList
                 data={listMarkets}
-                refreshing={isLoading}
-                onRefresh={async () => fetchMarkets(userLocation)}
+                refreshControl={
+                  <RefreshControl
+                      refreshing={isLoading}
+                      onRefresh={fetchMarkets}
+                      title="Arraste para atualizar"
+                      tintColor="#2F0781"
+                      titleColor="#2F0781"
+                   />
+                }
                 keyExtractor={(item) => item._id}
                 renderItem={({item}) => <MarketCard onSelect={() => navigation.push('ProductListScreen', { market: item, title: item.name })} market={item} />}
             />
