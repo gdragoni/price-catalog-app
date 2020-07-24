@@ -66,6 +66,7 @@ export default function LoginScreen({ navigation }) {
                     />
                     <Button 
                         text={"ENTRAR"}
+                        icon={require('../../../assets/images/perfil/logout.png')}
                         isLoading={isLoading}
                         onTap={handleSignInPress}
                     />

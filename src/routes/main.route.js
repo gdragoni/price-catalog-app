@@ -8,6 +8,7 @@ import UserScreen from '../screens/User';
 import MapFilterScreen from '../screens/MapFilter';
 import ProductListScreen from '../screens/ProductList';
 import CommentScreen from '../screens/Comment';
+import PublishProductScreen from '../screens/PublishProduct';
 
 const Tab = createBottomTabNavigator();
 
@@ -68,39 +69,48 @@ export default function MainRoute({ Stack }) {
                 headerBackTitle: " ",
             }}>
             <Stack.Screen 
-            name="Home" 
-            options={({ navigation }) => ({ 
-                headerTitle: "Offer",
-                headerRight: () => ( <HeaderButton 
-                    icon={require('../../assets/images/location/map-radius.png')}
-                    onPress={() => navigation.push('MapFilterScreen')}
-                /> )
-            })} 
-            component={TabScreen} />
+                name="Home" 
+                options={({ navigation }) => ({ 
+                    headerTitle: "Offer",
+                    headerRight: () => ( <HeaderButton 
+                        icon={require('../../assets/images/location/map-radius.png')}
+                        onPress={() => navigation.push('MapFilterScreen')}
+                    /> )
+                })} 
+                component={TabScreen} />
             <Stack.Screen 
-            name="MapFilterScreen" 
-            options={({ navigation }) => ({ 
-                headerTitle: "Filtro",
-            })} 
-            component={MapFilterScreen} />
+                name="MapFilterScreen" 
+                options={({ navigation }) => ({ 
+                    headerTitle: "Filtro",
+                })} 
+                component={MapFilterScreen} />
             <Stack.Screen 
-            options={({ route }) => ({
-                headerTitle: route.params.title,
-                headerTitleStyle: {
-                    fontSize: 16,
-                },
-            })}
-            name="ProductListScreen" 
-            component={ProductListScreen} />
+                options={({ route }) => ({
+                    headerTitle: route.params.title,
+                    headerTitleStyle: {
+                        fontSize: 16,
+                    },
+                })}
+                name="ProductListScreen" 
+                component={ProductListScreen} />
             <Stack.Screen 
-            options={({ route }) => ({
-                headerTitle: route.params.title,
-                headerTitleStyle: {
-                    fontSize: 16,
-                },
-            })}
-            name="CommentScreen" 
-            component={CommentScreen} />
+                options={({ route }) => ({
+                    headerTitle: route.params.title,
+                    headerTitleStyle: {
+                        fontSize: 16,
+                    },
+                })}
+                name="CommentScreen" 
+                component={CommentScreen} />
+            <Stack.Screen 
+                options={({ route }) => ({
+                    headerTitle: route.params.title,
+                    headerTitleStyle: {
+                        fontSize: 16,
+                    },
+                })}
+                name="PublishProductScreen" 
+                component={PublishProductScreen} />
         </Stack.Navigator>
     )
 }
