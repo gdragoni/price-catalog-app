@@ -6,7 +6,10 @@ import Reactotron from '../../ReactotronConfig'
 const persistConfig = {
   key: 'root',
   storage: AsyncStorage,
-  whitelist: ["user"],
+  whitelist: [
+    "user", 
+    // "config",
+  ],
 }
 
 import user from './User';
@@ -15,6 +18,7 @@ import location from './Location';
 import filter from './Filter';
 import products from './Product';
 import comments from './Comment';
+import config from './Config';
 
 const persistedReducer = persistReducer(persistConfig, combineReducers({
     user,
@@ -23,6 +27,7 @@ const persistedReducer = persistReducer(persistConfig, combineReducers({
     filter,
     products,
     comments,
+    config,
 }));
 
 const store = createStore(persistedReducer, Reactotron.createEnhancer());

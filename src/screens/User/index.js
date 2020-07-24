@@ -35,7 +35,7 @@ export default function UserScreen() {
                     icon={require('../../../assets/images/perfil/logout.png')}
                 />
             </View>
-            <Text style={styles.copyrightText}>Aplicativo desenvolvido por Gabriel A. Dragoni para trabalho de conclusão de curso de Engenharia de Computação, sem fins lucativos.</Text>
+            <Text style={styles.copyrightText}>Aplicativo desenvolvido por Gabriel A. Dragoni para trabalho de conclusão de curso de Engenharia de Computação, sem fins lucativos. Os dados presentes nesse aplicativo são fictícios</Text>
         </SafeAreaView>
     );
 }

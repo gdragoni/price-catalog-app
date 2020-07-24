@@ -1,4 +1,3 @@
-import { createStore } from 'redux';
 const initialState = null
 
 export default function location(state = initialState, action) {

@@ -1,4 +1,3 @@
-import { createStore } from 'redux';
 const initialState = {
   id: "",
   name: "",
