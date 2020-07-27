@@ -8,7 +8,7 @@ const persistConfig = {
   storage: AsyncStorage,
   whitelist: [
     "user", 
-    // "config",
+    "config",
   ],
 }
 
