@@ -40,6 +40,7 @@ export default function ProductListScreen({ route, navigation }) {
                     style={styles.flatlist}
                     data={productList}
                     contentContainerStyle={{ paddingBottom: 70, }}
+                    ListEmptyComponent={isLoading ? null : <Text style={styles.emptyText}>Não há produtos</Text>}
                     refreshControl={
                       <RefreshControl
                           refreshing={isLoading}

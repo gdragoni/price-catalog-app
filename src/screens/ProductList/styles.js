@@ -44,4 +44,10 @@ export default StyleSheet.create({
         height: 20,
         tintColor: 'white',
     },
+    emptyText: { 
+        textAlign: 'center', 
+        paddingTop: 24, 
+        fontFamily: 'OpenSans-SemiBold',
+        color: "#2F0781",
+    },
 });

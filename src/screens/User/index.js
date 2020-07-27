@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-import { SafeAreaView, Text, View, Image, TouchableHighlight, ScrollView } from 'react-native';
+import { SafeAreaView, Text, View, Image, TouchableHighlight, ScrollView, Alert } from 'react-native';
 import Button from '../../components/button.component';
 import ToninhoEasterEgg from '../../components/toninhoEasterEgg';
 import styles from './styles';
@@ -10,7 +10,17 @@ export default function UserScreen() {
     const user = useSelector(state => state.user);
 
     const onLogoutTap = () => {
-        dispatch({ type: 'CLEAR_USER' });
+        Alert.alert("Atenção", "Realmente deseja sair?", [
+            {
+                text: "Sim",
+                style: 'destructive',
+                onPress: () => dispatch({ type: 'CLEAR_USER' }),
+            },
+            {
+                text: "Não",
+                style: 'cancel',
+            }
+        ]);
     }
 
     return (

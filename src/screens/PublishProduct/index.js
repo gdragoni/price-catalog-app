@@ -6,12 +6,15 @@ import Button from '../../components/button.component';
 import styles from './styles';
 import api from '../../network/api';
 import ImagePicker from 'react-native-image-picker';
+import TutorialScreen from '../../screens/Tutorial';
 
 export default function PublishProductScreen({ route, navigation }) {
     const { market, refreshProductList } = route.params;
     const [isLoading, setIsLoading] = useState(false);
     const [description, setDescription] = useState("");
     const [image, setImage] = useState(null);
+    const alreadyShowPhotoTutorial = useSelector(state => state.config.alreadyShowPhotoTutorial);
+    const showTutorialScreen = useSelector(state => state.config.showTutorialScreen);
     const dispatch = useDispatch();
 
     const sendProduct = async () => {
@@ -67,6 +70,20 @@ export default function PublishProductScreen({ route, navigation }) {
         } else {
             sendProduct()
         }
+    }
+
+    useEffect(() => {
+        if(!alreadyShowPhotoTutorial) {
+            dispatch({ type: "SET_PHOTO_TUTORIAL_SCREENS" });
+        } else if(alreadyShowPhotoTutorial && !showTutorialScreen) {
+            openImagePicker();
+        }
+    }, [alreadyShowPhotoTutorial, showTutorialScreen]);
+
+    if(showTutorialScreen) {
+        return (
+            <TutorialScreen />
+        )
     }
 
     return (

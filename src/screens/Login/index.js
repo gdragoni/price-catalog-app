@@ -1,15 +1,31 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux'
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux'
 import styles from './styles';
 import { SafeAreaView, View, Text, ImageBackground, Image, TextInput, Alert, TouchableHighlight } from 'react-native';
 import Button from '../../components/button.component';
 import api from '../../network/api';
+import TutorialScreen from '../../screens/Tutorial';
 
 export default function LoginScreen({ navigation }) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [isLoading, setIsLoading] = useState(false);
     const dispatch = useDispatch();
+
+    const showTutorialScreen = useSelector(state => state.config.showTutorialScreen);
+    const alreadyShowInitialTutorial = useSelector(state => state.config.alreadyShowInitialTutorial);
+
+    useEffect(() => {
+      if(!alreadyShowInitialTutorial) {
+        dispatch({ type: 'SET_INITIAL_TUTORIAL_SCREENS' });
+      }
+    }, [alreadyShowInitialTutorial])
+
+    if(showTutorialScreen) {
+      return (
+        <TutorialScreen />
+      )
+    }
 
     const handleSignInPress = async () => {
         if(email.length === 0 || password.length === 0) {

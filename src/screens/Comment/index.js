@@ -54,6 +54,7 @@ export default function CommentScreen({ route }) {
                 style={styles.flatList}
                 data={comments}
                 inverted={true}
+                ListEmptyComponent={isLoading ? null : <Text style={styles.emptyText}>Não há comentários</Text>}
                 refreshControl={
                   <RefreshControl
                       refreshing={isLoading}

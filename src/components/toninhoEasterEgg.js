@@ -27,12 +27,12 @@ export default function ToninhoEasterEgg() {
             <ImageView
                 imageIndex={0}
                 images={[
+                    require('../../assets/images/tonim/5.jpeg'),
+                    require('../../assets/images/tonim/6.jpeg'),
                     require('../../assets/images/tonim/1.jpeg'),
                     require('../../assets/images/tonim/2.jpeg'),
                     require('../../assets/images/tonim/3.jpeg'),
                     require('../../assets/images/tonim/4.jpeg'),
-                    require('../../assets/images/tonim/5.jpeg'),
-                    require('../../assets/images/tonim/6.jpeg'),
                     ]}
                 visible={easterEggVisible}
                 onRequestClose={() => setEasterEggVisible(false)}

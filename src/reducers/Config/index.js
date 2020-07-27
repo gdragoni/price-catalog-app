@@ -14,26 +14,20 @@ export default function config(state = initialState, action) {
           ...state,
           showTutorialScreen: true,
           tutorialScreens: InitialTutorial,
+          alreadyShowInitialTutorial: true,
         };
     case 'SET_PHOTO_TUTORIAL_SCREENS':
     return {
         ...state,
         showTutorialScreen: true,
         tutorialScreens: PhotoTutorial,
+        alreadyShowPhotoTutorial: true,
       };
-    case 'SET_ALREADY_SHOWINITIALTUTORIAL':
+    case 'HIDE_TUTORIAL_SCREEN':
         return {
             ...state,
-            showTutorialScreen: false,
             tutorialScreens: [],
-            alreadyShowInitialTutorial: true,
-        };
-    case 'SET_ALREADY_SHOWPHOTOTUTORIAL':
-        return {
-            ...state,
             showTutorialScreen: false,
-            tutorialScreens: [],
-            alreadyShowPhotoTutorial: true,
         };
     default:
       return state;

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-import { SafeAreaView, Alert, FlatList, RefreshControl } from 'react-native';
+import { SafeAreaView, Alert, FlatList, RefreshControl, Text } from 'react-native';
 import styles from './styles';
 import LoadingView from '../Loading';
 import MarketCard from '../../components/marketCard.component';
@@ -39,6 +39,7 @@ export default function MarketListScreen({ navigation }) {
         <SafeAreaView style={styles.container}>
             <FlatList
                 data={listMarkets}
+                ListEmptyComponent={isLoading ? null : <Text style={styles.emptyText}>Não há estabelecimentos</Text>}
                 refreshControl={
                   <RefreshControl
                       refreshing={isLoading}

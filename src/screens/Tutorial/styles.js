@@ -1,7 +1,6 @@
 import { StyleSheet, Dimensions } from 'react-native';
 
-const halfWidthScreen = Dimensions.get('window').width/2
-const logoProportion = 616/792 
+const widthScreen = Dimensions.get('window').width
 
 export default StyleSheet.create({
     container: {
@@ -9,7 +8,7 @@ export default StyleSheet.create({
         alignItems: 'center',
     },
     imageBackground: {
-      flex: 1,
+      width: widthScreen,
       resizeMode: 'cover',
     },
     topContainer: {
@@ -20,7 +19,7 @@ export default StyleSheet.create({
     titleText: {
         color: 'white',
         textAlign: 'center',
-        fontSize: 30,
+        fontSize: 50,
         fontFamily: 'OpenSans-Bold',
     },
     bottomContainer: {
@@ -31,7 +30,7 @@ export default StyleSheet.create({
     text: {
         color: 'white',
         textAlign: 'center',
-        fontSize: 20,
+        fontSize: 25,
         fontFamily: 'OpenSans-Bold',
     },
     buttonContainer: {

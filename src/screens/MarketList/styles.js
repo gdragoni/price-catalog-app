@@ -5,4 +5,10 @@ export default StyleSheet.create({
         flex: 1, 
         backgroundColor: "#eee",
     },
+    emptyText: { 
+        textAlign: 'center', 
+        paddingTop: 24, 
+        fontFamily: 'OpenSans-SemiBold',
+        color: "#2F0781",
+    },
 });
