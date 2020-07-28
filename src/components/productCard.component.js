@@ -141,10 +141,10 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         width: '100%',
         borderTopWidth: 1,
-        borderTopColor: "#eee"
+        borderTopColor: "#eee",
+        justifyContent: 'space-between',
     },
     buttonView: {
-        flex: 1,
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',

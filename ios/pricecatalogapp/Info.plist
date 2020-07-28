@@ -37,10 +37,18 @@
 			</dict>
 		</dict>
 	</dict>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>O aplicativo usa localização para exibir lojas perto de você.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>$(PRODUCT_NAME) precisa acessar à camera para fotografar promoções</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>O aplicativo usa localização para exibir lojas perto de você.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>O aplicativo usa localização para exibir lojas perto de você.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>$(PRODUCT_NAME) precisa usar o microfone para videos</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>$(PRODUCT_NAME) precisa salvar fotos na sua galeria</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>$(PRODUCT_NAME) precisa ter acesso à galeria para publicar promoções</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>OpenSans-Bold.ttf</string>
@@ -61,14 +69,5 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
-  
-  <key>NSPhotoLibraryUsageDescription</key>
-  <string>$(PRODUCT_NAME) precisa ter acesso à galeria para publicar promoções</string>
-  <key>NSCameraUsageDescription</key>
-  <string>$(PRODUCT_NAME) precisa acessar à camera para fotografar promoções</string>
-  <key>NSPhotoLibraryAddUsageDescription</key>
-  <string>$(PRODUCT_NAME) precisa salvar fotos na sua galeria</string>
-  <key>NSMicrophoneUsageDescription</key>
-  <string>$(PRODUCT_NAME) precisa usar o microfone para videos</string>
 </dict>
 </plist>
