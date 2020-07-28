@@ -31,6 +31,9 @@ export default StyleSheet.create({
         alignItems: 'center',
         paddingHorizontal: 40,
     },
+    scrollView: {
+        width: '100%',
+    },
     textInput: {
         height: 60,
         backgroundColor: '#2F0781',

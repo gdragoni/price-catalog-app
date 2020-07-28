@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux'
 import styles from './styles';
-import { SafeAreaView, View, Text, ImageBackground, Image, TextInput, Alert } from 'react-native';
+import { SafeAreaView, View, Text, ImageBackground, Image, TextInput, Alert, ScrollView } from 'react-native';
 import Button from '../../components/button.component';
 import api from '../../network/api';
 import { validateEmail } from '../../utils/validation';
@@ -53,6 +53,7 @@ export default function RegisterScreen({ navigation }) {
                     <Image source={require('../../../assets/images/logo/offer-logo-purple.png')} style={styles.logo} />
                 </View>
                 <View style={styles.bottomSpaceView}>
+                <ScrollView style={styles.scrollView}>
                     <TextInput 
                         style={styles.textInput}
                         autoCapitalize={'words'}
@@ -101,6 +102,7 @@ export default function RegisterScreen({ navigation }) {
                         isLoading={isLoading}
                         onTap={handleSignInPress}
                     />
+                    </ScrollView>
                 </View>
             </SafeAreaView>
         </ImageBackground>

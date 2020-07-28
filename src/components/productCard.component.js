@@ -6,20 +6,6 @@ import api from '../network/api';
 import moment from 'moment';
 import 'moment/locale/pt-br';
 
-function LikeMessage(likes, userLiked) {
-    if(userLiked && likes && likes.length > 2) {
-        return `Você e outros ${likes.length-1} curtiram esse produto`;
-    } else if(userLiked && likes && likes.length == 1) {
-        return "Você curtiu esse produto";
-    } else if(!userLiked && likes && likes.length > 1) {
-        return `${likes.length} curtiram esse produto`;
-    } else if(!userLiked && likes && likes.length == 1) {
-        return `1 pessoa curtiu esse produto`;
-    } else if(likes.length == 0) {
-        return "Ninguém curtiu esse produto ainda"
-    }
-}
-
 function ProductCardButton({ text, icon, onTap, isSelected }) {
     return (
         <TouchableHighlight style={styles.buttonView} onPress={onTap}>
@@ -73,9 +59,9 @@ export default function ProductCard({ product, market, navigation, onImageTapped
                 <View style={styles.textsView}>
                     <Text style={styles.textName}>{product.description}</Text>
                 </View>
-                { !product.likes ? null : 
+                { !product.likeMessage ? null : 
                 <View style={styles.likeView}>
-                    <Text style={styles.likeText}>{LikeMessage(product.likes, userLiked)}</Text>
+                    <Text style={styles.likeText}>{product.likeMessage}</Text>
                 </View> 
                 }
                 <View style={styles.buttonsContainerView}>
