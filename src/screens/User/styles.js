@@ -12,7 +12,8 @@ export default StyleSheet.create({
     topContainer: {
         alignItems: 'center',
         width: '100%',
-        padding: 18,
+        paddingTop: 18,
+        paddingHorizontal: 18,
         flex: 1,
         justifyContent: 'space-between',
     },
@@ -35,7 +36,8 @@ export default StyleSheet.create({
         textAlign: 'center',
         paddingHorizontal: 50,
         color: '#2F0781',
-        paddingVertical: 18,
+        paddingBottom: 18,
+        paddingTop: 8,
     },
     logo: {
         width: halfWidthScreen,

@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
     logo: {
         height: 80,
         width: 100,
-        resizeMode: 'cover',
+        resizeMode: 'contain',
         borderRadius: 8,
     },
     pinView: { 

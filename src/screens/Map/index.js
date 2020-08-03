@@ -35,6 +35,11 @@ export default function MapScreen({ navigation }) {
                 setGrantedPermission(grantedRequested === PermissionsAndroid.RESULTS.GRANTED);
                 if(grantedRequested !== PermissionsAndroid.RESULTS.GRANTED) {
                     Alert.alert("O aplicativo necessita de permissão para usar a localização para buscar ofertas próximas de você!");
+                    const fhoLocation = {
+                        latitude: -22.376060,
+                        longitude: -47.370512,
+                    };
+                    dispatch({ type: 'SET_LOCATION', payload: fhoLocation });
                 }
             }
         }

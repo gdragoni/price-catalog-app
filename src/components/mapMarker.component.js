@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
     calloutImage: {
         width: '100%',
         height: 100,
-        resizeMode: 'cover',
+        resizeMode: 'contain',
     },
     calloutContainerAndroidView: {
         height: 50,
