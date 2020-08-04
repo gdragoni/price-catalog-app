@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, Text, TouchableHighlight, ActivityIndicator, Image } from 'react-native';
+import { StyleSheet, TouchableHighlight, Image } from 'react-native';
 
 export default function HeaderButton({ icon, onPress }) {
     return (
