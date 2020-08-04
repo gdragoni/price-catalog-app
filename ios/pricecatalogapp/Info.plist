@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>pricecatalogapp</string>
+	<string>$(PRODUCT_NAME)</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -37,8 +37,26 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>$(PRODUCT_NAME) precisa acessar à camera para fotografar promoções</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>O aplicativo usa localização para exibir lojas perto de você.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string/>
+	<string>O aplicativo usa localização para exibir lojas perto de você.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>$(PRODUCT_NAME) precisa usar o microfone para videos</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>$(PRODUCT_NAME) precisa salvar fotos na sua galeria</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>$(PRODUCT_NAME) precisa ter acesso à galeria para publicar promoções</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>OpenSans-Bold.ttf</string>
+		<string>OpenSans-ExtraBold.ttf</string>
+		<string>OpenSans-Light.ttf</string>
+		<string>OpenSans-Regular.ttf</string>
+		<string>OpenSans-SemiBold.ttf</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIRequiredDeviceCapabilities</key>
@@ -48,18 +66,8 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
-	<key>UIAppFonts</key>
-	<array>
-		<string>OpenSans-Bold.ttf</string>
-		<string>OpenSans-ExtraBold.ttf</string>
-		<string>OpenSans-Light.ttf</string>
-		<string>OpenSans-Regular.ttf</string>
-		<string>OpenSans-SemiBold.ttf</string>
-	</array>
 </dict>
 </plist>

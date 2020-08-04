@@ -1,15 +1,17 @@
-import { createStore } from 'redux';
+const initialState = {
+  id: "",
+  name: "",
+  password: "",
+  email: "",
+  token: "",
+}
 
-export default function user(state = {
-    id: "",
-    name: "",
-    password: "",
-    email: "",
-    token: "",
-}, action) {
+export default function user(state = initialState, action) {
   switch (action.type) {
     case 'SET_USER':
-      return action.payload
+      return action.payload;
+    case 'CLEAR_USER':
+      return initialState;
     default:
       return state
   }
