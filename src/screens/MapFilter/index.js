@@ -9,6 +9,11 @@ export default function MapFilterScreen({ navigation }) {
     const filter = useSelector(state => state.filter);
     const [range, setRange] = useState(filter.range);
     
+    const filterHandler = () => {
+        dispatch({ type: "SET_FILTER_RANGE", payload: range });
+        navigation.goBack();
+    }
+
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.formView}>
@@ -23,10 +28,7 @@ export default function MapFilterScreen({ navigation }) {
             </View>
             <View style={styles.buttonView}>
                 <Button
-                    onTap={() => {
-                        dispatch({ type: "SET_FILTER_RANGE", payload: range });
-                        navigation.goBack();
-                        }}
+                    onTap={filterHandler}
                     style={styles.button}
                     text={"Aplicar"}
                 />
